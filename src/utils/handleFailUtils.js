@@ -1,7 +1,7 @@
 import { splitData, formatDataMatrix, sanitizeArray } from './dataUtils'
 
 
-function handleFileUpload(e) {
+function handleFileUpload(e, setData) {
     e.preventDefault();
     const files = e.target.files;
     const fileReaders = [];
@@ -13,7 +13,7 @@ function handleFileUpload(e) {
         const dataArr = splitData(reader.result);
         const dataMatrix = formatDataMatrix(dataArr);
         const sanitizedArray = sanitizeArray(dataMatrix);
-        console.log(sanitizedArray);
+        setData(sanitizedArray);
     };
 
     reader.readAsText(file);

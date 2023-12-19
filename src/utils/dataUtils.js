@@ -15,9 +15,9 @@ function trimString(string) {
 function sanitizeArray(row) {
     return row.map((cell, index) => {
         if (index === 2 || index === 3) {
-        return validateDate(cell.trim());
+        return validateDate(cell);
         }
-        return cell.trim();
+        return cell;
     });
 }
 
