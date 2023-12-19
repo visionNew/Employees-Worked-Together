@@ -1,12 +1,14 @@
-import { handleFileUpload } from './utils/handleFailUtils'
-import './App.css'
 import { useState } from 'react';
+import { handleFileUpload } from './utils/handleFailUtils';
+import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';
+import './App.css'
 
 function App() {
   const [data, setData] = useState([]);
+  const [errors, setErrors] = useState([]);
 
   const handleFileChange = (e) => {
-    handleFileUpload(e, setData);
+    handleFileUpload(e, setData, setErrors);
   };
 
   return (
@@ -14,7 +16,7 @@ function App() {
       <div className="App">
         <h1>Employees</h1>
         <p></p>
-
+        {!!errors.length && <ErrorDisplay errors={errors} />}
         <input type="file" onChange={handleFileChange} />
         {data.map((row, rowIndex) => (
           <div key={rowIndex}>

@@ -1,0 +1,29 @@
+.error__display {
+    color: white;
+    margin-top: 10px;
+}
+
+.error__display p {
+    background-color: red;
+    margin: 10px 0;
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.error__display p::before, 
+.error__display p::after {
+    content: '⚠️';
+    margin-right: 5px;
+    font-size: 25px;
+}
+
+.error__display p::after {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+.error__display p span {
+    font-size: 25px;
+}

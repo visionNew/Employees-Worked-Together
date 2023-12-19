@@ -1,28 +1,26 @@
-import { splitData, formatDataMatrix, sanitizeArray } from './dataUtils'
+import { splitData, formatDataMatrix, sanitizeArray, findInvalidRows } from './dataUtils'
 
 
-function handleFileUpload(e, setData) {
+function handleFileUpload(e, setData, setErrors) {
     e.preventDefault();
-    const files = e.target.files;
-    const fileReaders = [];
-
-    const processFile = (file) => {
+    const file = e.target.files[0];
     const reader = new FileReader();
+
+    reader.readAsText(file);
 
     reader.onload = function () {
         const dataArr = splitData(reader.result);
         const dataMatrix = formatDataMatrix(dataArr);
-        const sanitizedArray = sanitizeArray(dataMatrix);
-        setData(sanitizedArray);
-    };
+        const newErrors = findInvalidRows(dataMatrix);
 
-    reader.readAsText(file);
-    fileReaders.push(reader);
+        if (newErrors.length > 0) {
+            setData([]);
+            setErrors(newErrors);
+        } else {
+            const sanitizedArray = dataMatrix.map(sanitizeArray);
+            setData(sanitizedArray);
+        }
     };
-
-    for (const file of files) {
-    processFile(file);
-    }
 }
 
 export {handleFileUpload}
