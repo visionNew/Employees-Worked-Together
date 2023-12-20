@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { handleFileUpload } from './utils/handleFailUtils';
 import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';
+import DataTable from "./components/DataTable";
+import FileInput from "./components/FileInput/FileInput";
 import './App.css'
 
 function App() {
@@ -16,15 +18,13 @@ function App() {
       <div className="App">
         <h1>Employees</h1>
         <p></p>
+        <FileInput onChange={handleFileChange} />
         {!!errors.length && <ErrorDisplay errors={errors} />}
-        <input type="file" onChange={handleFileChange} />
-        {data.map((row, rowIndex) => (
-          <div key={rowIndex}>
-            {row.map((cell, cellIndex) => (
-              <span key={cellIndex}>{cell} </span>
-            ))}
-          </div>
-        ))}
+        {!!data.length && (
+          <>
+            <DataTable data={data} />
+          </>
+        )}
       </div>
     </>
   )
