@@ -3,7 +3,10 @@ import { handleFileUpload } from './utils/handleFailUtils';
 import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';
 import DataTable from "./components/DataTable";
 import FileInput from "./components/FileInput/FileInput";
+import DaysWorkedTogetherTable from './components/DaysWorkedTogetherTable';
+import DaysWorkedByProjectTable from './components/DaysWorkedByProjectTable';
 import './App.css'
+
 
 function App() {
   const [data, setData] = useState([]);
@@ -23,6 +26,8 @@ function App() {
         {!!data.length && (
           <>
             <DataTable data={data} />
+            <DaysWorkedByProjectTable data={data} />
+            <DaysWorkedTogetherTable data={data} />
           </>
         )}
       </div>
