@@ -1,38 +1,32 @@
 import { useLocation } from 'react-router-dom';
-import { calculateDaysWorked } from '../utils/calculateUtils';
+import { useSortData, sortData } from '../utils/sortUtils';
+import * as dataManipulation from '../utils/calculateUtils';
+import Table from './Table/Table';
 
 function DaysWorkedByProjectTable() {
     const location = useLocation();
     const data = location.state["data"];
+    const { sortColumn, sortOrder, resetSort, handleSort } = useSortData();
 
-return (
-        <>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Employee</th>
-                        <th>Project</th>
-                        <th>Date From</th>
-                        <th>Date To</th>
-                        <th>Days Worked</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {data.map((row, index) => {
-                    const daysWorked = calculateDaysWorked(row[2], row[3]);
-                    return (
-                    <tr key={index}>
-                        <td>{row[0]}</td>
-                        <td>{row[1]}</td>
-                        <td>{row[2]}</td>
-                        <td>{row[3]}</td>
-                        <td>{daysWorked}</td>
-                    </tr>
-                    );
-                })}
-                </tbody>
-            </table>
-        </>
-    );
+    const groupedData = data.map(row => [
+        row[0],
+        row[1],
+        row[2], 
+        row[3], 
+        dataManipulation.calculateDaysWorked(row[2], row[3]),
+    ]);
+
+    const tableProps = {
+        title: "Days Worked by Project Table",
+        headers: ["Employee", "Project", "Date From", "Date To", "Days Worked"],
+        includeIndex: true,
+        sortable: true,
+        data: groupedData,
+        handleSort: handleSort,
+        sortFunction: (data) => sortData(data, sortColumn, sortOrder),
+    };
+
+    return <Table {...tableProps} />;
 }
-export default DaysWorkedByProjectTable
+
+export default DaysWorkedByProjectTable;

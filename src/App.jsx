@@ -28,13 +28,13 @@ function App() {
         <nav>
           <NavLink to="/">Home page</NavLink>
           <NavLink to={"/overall-stats"} state={{ data: data }}>
-              Overall Stats
+              General Stats
           </NavLink>
           <NavLink to={"/worked-project-period"} state={{ data: data }}>
-              Most Points
+              Project Period
           </NavLink>
           <NavLink to={"/worked-together-period"} state={{ data: data }}>
-              Most Points All Games
+              Worked Together Period
           </NavLink>
         </nav>
 

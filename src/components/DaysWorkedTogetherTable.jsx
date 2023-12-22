@@ -1,34 +1,32 @@
 import { useLocation } from 'react-router-dom';
-import { groupByProject } from '../utils/calculateUtils';
-
+import Table from './Table/Table';
+import { useSortData, sortData } from '../utils/sortUtils';
+import * as dataManipulation  from '../utils/calculateUtils';
 
 function DaysWorkedTogetherTable() {
     const location = useLocation();
     const data = location.state["data"];
-    const projectsData = groupByProject(data);
+    const { sortColumn, sortOrder, resetSort, handleSort } = useSortData();
+
+    const groupedData = dataManipulation.groupByProject(data);
+    const sortedData = groupedData.map(group => [
+        group.employees.reverse().join(', '),
+        group.project,
+        group.daysWorkedTogether === 0 ? 'They Didn`t Work Together' : group.daysWorkedTogether,
+    ]);
+
     
-return (
-    <>
-        <table>
-            <thead>
-            <tr>
-                <th>Employees</th>
-                <th>Project</th>
-                <th>Days Worked Together</th>
-            </tr>
-            </thead>
-            <tbody>
-            {projectsData.map((row, index) => (
-                <tr key={index}>
-                    <td>{row.employees.join(', ')}</td>
-                    <td>{row.project}</td>
-                    <td>{row.daysWorkedTogether}</td>
-                </tr>
-            ))}
-            </tbody>
-        </table>
-        </>
-    );
+        const tableProps = {
+            title: 'Employees Worked Together Period',
+            headers: ['Employees', 'Project', 'Days Worked Together'],
+            includeIndex: true,
+            sortable: true,
+            data: sortedData,
+            handleSort:handleSort,
+            sortFunction: (data) => sortData(data, sortColumn, sortOrder),
+        };
+
+        return <Table {...tableProps} />;
 }
 
 export default DaysWorkedTogetherTable;
