@@ -1,10 +1,8 @@
 import { useState } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
 import { handleFileUpload } from './utils/handleFailUtils';
 import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';
-import DataTable from "./components/DataTable";
 import FileInput from "./components/FileInput/FileInput";
-import DaysWorkedTogetherTable from './components/DaysWorkedTogetherTable';
-import DaysWorkedByProjectTable from './components/DaysWorkedByProjectTable';
 import './App.css'
 
 
@@ -19,17 +17,28 @@ function App() {
   return (
     <>
       <div className="App">
-        <h1>Employees</h1>
-        <p></p>
-        <FileInput onChange={handleFileChange} />
+        <header className="app__header">
+          {/* <div className="header__logo"><img src={Logo} alt="logo" /></div> */}
+          <FileInput onChange={handleFileChange} />
+          <h1>Employees Statistic</h1>
+        </header>
+
         {!!errors.length && <ErrorDisplay errors={errors} />}
-        {!!data.length && (
-          <>
-            <DataTable data={data} />
-            <DaysWorkedByProjectTable data={data} />
-            <DaysWorkedTogetherTable data={data} />
-          </>
-        )}
+
+        <nav>
+          <NavLink to="/">Home page</NavLink>
+          <NavLink to={"/overall-stats"} state={{ data: data }}>
+              Overall Stats
+          </NavLink>
+          <NavLink to={"/worked-project-period"} state={{ data: data }}>
+              Most Points
+          </NavLink>
+          <NavLink to={"/worked-together-period"} state={{ data: data }}>
+              Most Points All Games
+          </NavLink>
+        </nav>
+
+        {!!data.length && <Outlet />}
       </div>
     </>
   )

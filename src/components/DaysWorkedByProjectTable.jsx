@@ -1,6 +1,9 @@
+import { useLocation } from 'react-router-dom';
 import { calculateDaysWorked } from '../utils/calculateUtils';
 
-function DaysWorkedByProjectTable({ data }) {
+function DaysWorkedByProjectTable() {
+    const location = useLocation();
+    const data = location.state["data"];
 
 return (
         <>

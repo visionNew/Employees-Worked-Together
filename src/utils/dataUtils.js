@@ -30,13 +30,13 @@ function getLocalDate() {
     const month = (now.getMonth() + 1).toString().padStart(2, '0');
     const day = now.getDate().toString().padStart(2, '0');
     return `${year}-${month}-${day}`;
-  }
-  
-  function validateDate(dateString) {
+}
+
+function validateDate(dateString) {
     if (typeof dateString === 'string' && dateString.trim().toUpperCase() === 'NULL') {
-      return getLocalDate();
+    return getLocalDate();
     }
     return dateString;
-  }
+}
 
 export { splitData, formatDataMatrix, sanitizeArray, findInvalidRows, validateDate};

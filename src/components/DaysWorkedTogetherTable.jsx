@@ -1,7 +1,10 @@
+import { useLocation } from 'react-router-dom';
 import { groupByProject } from '../utils/calculateUtils';
 
 
-function DaysWorkedTogetherTable({ data }) {
+function DaysWorkedTogetherTable() {
+    const location = useLocation();
+    const data = location.state["data"];
     const projectsData = groupByProject(data);
     
 return (
