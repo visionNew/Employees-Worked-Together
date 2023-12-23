@@ -10,6 +10,12 @@ header .content .header__logo img {
     height: 5rem;
 }
 
+header .content nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
 header .content .header__logo a {
     border-bottom: none;
 }
@@ -21,4 +27,33 @@ header .content .header__logo a:hover {
 header .content nav {
     display: flex;
     gap: 2rem;
+}
+header .content .header__nav {
+    display: flex;
+    gap: 2rem;
+}
+header .content .menu__icon {
+    display: none;
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    header .content .header__nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 10%;
+        left: 82%;
+        z-index: 1;
+    }
+
+    header .content .header__nav.visible {
+        display: flex;
+    }
+
+    header .content .menu__icon {
+        display: block;
+        cursor: pointer;
+    }
+
 }
