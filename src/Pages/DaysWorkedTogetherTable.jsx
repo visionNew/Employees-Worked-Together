@@ -1,7 +1,8 @@
 import { useLocation } from 'react-router-dom';
-import Table from './Table/Table';
-import { useSortData, sortData } from '../utils/sortUtils';
+import { sortData } from '../utils/sortUtils';
+import { useSortData } from '../hooks/useSortData';
 import * as dataManipulation  from '../utils/calculateUtils';
+import Table from '../components/Table/Table';
 
 function DaysWorkedTogetherTable() {
     const location = useLocation();

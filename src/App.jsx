@@ -1,47 +1,26 @@
-import { useState } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
-import { handleFileUpload } from './utils/handleFailUtils';
-import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';
-import FileInput from "./components/FileInput/FileInput";
+import { Route, Routes } from 'react-router-dom';
+import Home from './Pages/Home/Home';
+import Main from './Pages/Main/Main';
+import Statistic from './Pages/Statistic/Statistic';
+import DataTable from './Pages/DataTable';
+import DaysWorkedByProjectTable from './Pages/DaysWorkedByProjectTable';
+import DaysWorkedTogetherTable from './Pages/DaysWorkedTogetherTable';
 import './App.css'
-import SearchInput from './components/SearshInput';
 
 
 function App() {
-  const [data, setData] = useState([]);
-  const [errors, setErrors] = useState([]);
-
-  const handleFileChange = (e) => {
-    handleFileUpload(e, setData, setErrors);
-  };
-
+  
   return (
-    <>
-      <div className="App">
-        <header className="app__header">
-          {/* <div className="header__logo"><img src={Logo} alt="logo" /></div> */}
-          <FileInput onChange={handleFileChange} />
-          <h1>Employees Statistic</h1>
-        </header>
-
-        {!!errors.length && <ErrorDisplay errors={errors} />}
-          <SearchInput data={data} searchKey={0}/>
-        <nav>
-          <NavLink to="/">Home page</NavLink>
-          <NavLink to={"/overall-stats"} state={{ data: data }}>
-              General Stats
-          </NavLink>
-          <NavLink to={"/worked-project-period"} state={{ data: data }}>
-              Project Period
-          </NavLink>
-          <NavLink to={"/worked-together-period"} state={{ data: data }}>
-              Worked Together Period
-          </NavLink>
-        </nav>
-
-        {!!data.length && <Outlet />}
-      </div>
-    </>
+    <Routes>
+            <Route path="/" element={<Main />}>
+                <Route path="" element={<Home />} />
+                <Route path="employees-statistic" element={<Statistic />}>
+                    <Route path="overall-stats" element={<DataTable/>} />
+                    <Route path="worked-project-period" element={<DaysWorkedByProjectTable />} />
+                    <Route path="worked-together-period" element={<DaysWorkedTogetherTable />} />
+                </Route>
+            </Route>
+        </Routes>
   )
 }
 

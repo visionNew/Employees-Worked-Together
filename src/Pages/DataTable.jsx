@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
-import Table from './Table/Table';
-import { useSortData, sortData } from '../utils/sortUtils';
+import { sortData } from '../utils/sortUtils';
+import { useSortData } from '../hooks/useSortData';
+import Table from '../components/Table/Table';
 
 function DataTable() {
     const location = useLocation();
