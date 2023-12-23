@@ -3,9 +3,9 @@ import { Outlet } from 'react-router-dom';
 import { handleFileUpload } from '../../utils/handleFailUtils';
 import FileInput from '../../components/FileInput/FileInput';
 import ErrorDisplay from '../../components/ErrorDisplay/ErrorDisplay';
-import './Statistic.css'
 import Dropdown from './../../components/DropDown/Dropdown';
 import DataLoadedMessage from '../../components/DataLoadedMessage/DataLoadedMessage';
+import './Statistic.css'
 
 
 function Statistic() {
@@ -17,9 +17,10 @@ function Statistic() {
     useEffect(() => {
             const storedData = localStorage.getItem('uploadedData');
             if (storedData) {
-            setData(JSON.parse(storedData));
-            setIsDataLoaded(true);
+                setData(JSON.parse(storedData));
+                setIsDataLoaded(true);
             }
+            localStorage.removeItem('uploadedData');
         }, []);
 
     const handleFileChange = (e) => {
