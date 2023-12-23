@@ -44,6 +44,40 @@ The primary tasks for this project include:
 
 2. **Statistical Functions:** Custom functions are used to calculate and display statistics, such as overall performance, project periods, and collaboration periods.
 
+
+## Issues to Address
+
+### 1. SortButton Icon Change on Click
+
+**Description:** The icons on the sorting button do not change correctly upon clicking.
+
+**Fix Suggestion:** Review the implementation of the `SortButton` component and ensure that the functionality for changing icons on click is working correctly.
+
+### 2. Automatic Dropdown Menu Closure on Select or Outside Click
+
+**Description:** The dropdown menu does not automatically close after selecting an option or clicking outside of it.
+
+**Fix Suggestion:** Examine the code of the components related to the dropdown menu and add logic for automatic closure after selection or a click outside its area.
+
+### 3. Search in Input
+
+**Description:** The implementation of the search input can be improved.
+
+**Fix Suggestion:** Examine the code of the search input and add functionality for enhanced searching or optimize the current implementation.
+
+### How to Contribute
+
+If you want to contribute to fixing these issues, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/your-repository.git
+   ```
+2. Create a new branch for your feature using `git checkout -b issue/issue-number`
+3. Make changes and commit them with detailed comments explaining what each part does.
+4. Push your changes to your fork using `git push origin issue/issue-number`.
+5. Open a pull request from your branch to the main branch (`master`) of the original repository.
+    
 ## Technologies Used
 
 - **React:** The app is built using React.js for creating a dynamic and responsive user interface.
