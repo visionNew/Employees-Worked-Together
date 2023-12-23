@@ -1,9 +1,14 @@
+import './Home.css'
 function Home() {
     return (
-        <>
-            <h1>Welcome to the App</h1>
-            <p>Short information about the app.</p>
-        </>
+        <section className="home">
+                <div className="container">
+                    <div className="content">
+                        <h1>Welcome to the App</h1>
+                        <p>Short information about the app.</p>
+                    </div>
+                </div>
+        </section>
     );
 }
 

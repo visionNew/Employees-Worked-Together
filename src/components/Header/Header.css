@@ -1,0 +1,30 @@
+header .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+header .content .header__logo img {
+    width: 5rem;
+    height: 5rem;
+}
+
+header .content .header__logo a {
+    border-bottom: none;
+}
+
+header .content .header__logo a:hover {
+
+    border-bottom: none;
+}
+header .content nav {
+    display: flex;
+    gap: 2rem;
+}
+
+header .content span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+}

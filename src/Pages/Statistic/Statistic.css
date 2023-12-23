@@ -1,0 +1,17 @@
+section.statistic .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+section.statistic .content h1 {
+    margin-bottom: 2rem;
+}
+
+section.statistic .content .statistic__filters {
+    display: flex;
+    align-content: center;
+    gap: 10rem;
+    margin-bottom: 5rem;
+}

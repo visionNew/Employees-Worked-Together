@@ -19,6 +19,8 @@ function handleFileUpload(e, setData, setErrors) {
         } else {
             const sanitizedArray = dataMatrix.map(sanitizeArray);
             setData(sanitizedArray);
+
+            localStorage.setItem('uploadedData', JSON.stringify(sanitizedArray));
         }
     };
 }

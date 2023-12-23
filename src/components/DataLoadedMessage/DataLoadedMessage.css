@@ -1,0 +1,8 @@
+.data__massage {
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem 2rem;
+    background: #F6D55C;
+    border-radius: 5px;
+}
