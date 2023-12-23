@@ -22,9 +22,3 @@ header .content nav {
     display: flex;
     gap: 2rem;
 }
-
-header .content span {
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1;
-}

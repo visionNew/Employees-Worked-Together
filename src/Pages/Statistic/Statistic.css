@@ -15,3 +15,18 @@ section.statistic .content .statistic__filters {
     gap: 10rem;
     margin-bottom: 5rem;
 }
+
+@media screen and  (max-width: 768px) { 
+    section.statistic .content h1 {
+        font-size: 4rem;
+    }
+}
+
+@media screen and  (max-width: 600px) { 
+    section.statistic .content h1  {
+        font-size: 3rem;
+    }
+    section.statistic .content h2 {
+        font-size: 1.5rem;
+    }
+}

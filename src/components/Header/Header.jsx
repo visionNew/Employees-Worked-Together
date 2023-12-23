@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../../public/logo.svg'
 import './Header.css';
+import DecoratedText from '../DecoratedText/DecoratedText';
 
 function Header() {
     return (
@@ -14,7 +15,7 @@ function Header() {
                             <NavLink to={"/"}>Home</NavLink>
                             <NavLink to={"/employees-statistic"}>Statistic</NavLink>
                         </nav>
-                        <span>Statistic App</span>
+                        <DecoratedText />
                     </div>
                 </div>
             </header>

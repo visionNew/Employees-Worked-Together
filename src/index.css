@@ -6,11 +6,11 @@
 
     /*========== Colors ==========*/
     --color-body: #173F5F;
-    --color-orange: #ff8b38;
+    --color-red: #ED553B;
     --color-white: #ffffff;
     --color-black: #111111;
-    --color-dark-light: #333333;
-    --color-gray: #f5f5f5;
+    --color-yellow: #F6D55C;
+    --color-green: #3CAEA3;
     
     /*========== Font and typography ==========*/
     --body-font: 'Open Sans', sans-serif;
@@ -130,9 +130,9 @@ h4 {
 }
 
 a {
-    font-size: 24px;
+    font-size: 1.4rem;
     font-weight: 500;
-    color: #646cff;
+    color: var(--color-white);
     text-decoration: inherit;
     border-bottom: 2px solid transparent;
     transition: all 0.5s ease-in-out;

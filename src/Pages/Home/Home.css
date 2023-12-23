@@ -5,14 +5,50 @@ section.home .content {
     justify-content: center;
 }
 
-section.home .content h1 {
-    margin-bottom: 2rem;
-}
-
 section.home .content p {
+    font-size: 1.4rem;
     text-align: center;
-    margin: 2rem auto 4rem;
-    width: 42%;
+    /* margin: 2rem auto 4rem; */
+    width: 45%;
     color: var(--color-white);
     font-weight: var(--font-normal);
+}
+
+section.home .content h1{
+    margin-bottom: 5rem;
+}
+
+
+section.home .decorated__text{
+    font-size: var(--font-h1);
+}
+
+section.home .decorated__text span {
+    font-size: 10rem;
+}
+
+
+@media screen and  (max-width: 768px) { 
+    section.home .decorated__text{
+        font-size: 4rem;
+    }
+    section.home .decorated__text span {
+        font-size: 8rem;
+    }
+    section.home .content p {
+        width: 75%;
+    }
+}
+
+@media screen and  (max-width: 600px) { 
+    section.home .decorated__text{
+        font-size: 3rem;
+    }
+    section.home .decorated__text span {
+        font-size: 5rem;
+    }
+    section.home .content p {
+        font-size: 1.2rem;
+        width: 90%;
+    }
 }
