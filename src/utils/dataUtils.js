@@ -33,10 +33,30 @@ function getLocalDate() {
 }
 
 function validateDate(dateString) {
-    if (typeof dateString === 'string' && dateString.trim().toUpperCase() === 'NULL') {
-    return getLocalDate();
+    const isoDateRegex = /^\d{4}-\d{2}-\d{2}$/;
+    if (isoDateRegex.test(dateString)) {
+        return dateString;
     }
-    return dateString;
+
+    const dmyDateRegex = /^\d{2}-\d{2}-\d{4}$/;
+    if (dmyDateRegex.test(dateString)) {
+        const [day, month, year] = dateString.split('-');
+        return `${year}-${month}-${day}`;
+    }
+
+    const dmyDateRegex2 = /^\d{2}\/\d{2}\/\d{4}$/;
+    if (dmyDateRegex2.test(dateString)) {
+        const [day, month, year] = dateString.split('/');
+        return `${year}-${month}-${day}`;
+    }
+
+    const ymdDateRegex = /^\d{4}\/\d{2}\/\d{2}$/;
+    if (ymdDateRegex.test(dateString)) {
+        const [year, month, day] = dateString.split('/');
+        return `${year}-${month}-${day}`;
+    }
+
+    return getLocalDate();
 }
 
 export { splitData, formatDataMatrix, sanitizeArray, findInvalidRows, validateDate};

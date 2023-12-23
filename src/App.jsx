@@ -4,6 +4,7 @@ import { handleFileUpload } from './utils/handleFailUtils';
 import ErrorDisplay from './components/ErrorDisplay/ErrorDisplay';
 import FileInput from "./components/FileInput/FileInput";
 import './App.css'
+import SearchInput from './components/SearshInput';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
         </header>
 
         {!!errors.length && <ErrorDisplay errors={errors} />}
-
+          <SearchInput data={data} searchKey={0}/>
         <nav>
           <NavLink to="/">Home page</NavLink>
           <NavLink to={"/overall-stats"} state={{ data: data }}>
