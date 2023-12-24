@@ -53,13 +53,7 @@ The primary tasks for this project include:
 
 **Fix Suggestion:** Review the implementation of the `SortButton` component and ensure that the functionality for changing icons on click is working correctly.
 
-### 2. Automatic Dropdown Menu Closure on Select or Outside Click
-
-**Description:** The dropdown menu does not automatically close after selecting an option or clicking outside of it.
-
-**Fix Suggestion:** Examine the code of the components related to the dropdown menu and add logic for automatic closure after selection or a click outside its area.
-
-### 3. Search in Input
+### 2. Search in Input
 
 **Description:** The implementation of the search input can be improved.
 
