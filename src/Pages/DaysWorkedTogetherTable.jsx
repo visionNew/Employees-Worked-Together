@@ -3,11 +3,20 @@ import { sortData } from '../utils/sortUtils';
 import { useSortData } from '../hooks/useSortData';
 import * as dataManipulation  from '../utils/calculateUtils';
 import Table from '../components/Table/Table';
+import SearchInput from '../components/FileInput/SearchInput';
+import { useState } from 'react';
 
 function DaysWorkedTogetherTable() {
     const location = useLocation();
     const data = location.state["data"];
     const { sortColumn, sortOrder, resetSort, handleSort } = useSortData();
+    const [filteredData, setFilteredData] = useState(data);
+
+    const handleSearch = (results) => {
+        if (results && results.length > 0) {
+            setFilteredData(results);
+        }
+    };
 
     const groupedData = dataManipulation.groupByProject(data);
     const sortedData = groupedData.map(group => [
@@ -22,12 +31,18 @@ function DaysWorkedTogetherTable() {
             headers: ['Employees', 'Project', 'Days Worked Together'],
             includeIndex: true,
             sortable: true,
-            data: sortedData,
+            data: filteredData,
             handleSort:handleSort,
             sortFunction: (data) => sortData(data, sortColumn, sortOrder),
+            onSearch: handleSearch,
         };
 
-        return <Table {...tableProps} />;
+    return (
+        <>
+            <SearchInput data={sortedData} onSearch={handleSearch} />
+            <Table {...tableProps} />
+        </>
+    );
 }
 
 export default DaysWorkedTogetherTable;

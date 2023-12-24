@@ -1,0 +1,14 @@
+input.search {
+    font-weight: 700;
+    color: var(--color-black);
+    width: 20rem;
+    padding: 0.8rem 0.6rem;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 2rem;
+}
+
+input.search::placeholder {
+    font-weight: 700;
+    color: var(--color-black);
+}

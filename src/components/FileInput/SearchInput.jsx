@@ -1,31 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useState } from "react";
+import "./SearchInput.css"
 
-function SearchInput({ data, searchKey }) {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
+function SearchInput({ data, onSearch }) {
+  const [query, setQuery] = useState('');
 
-    const handleSearch = () => {
-        const results = data.filter(item => item[searchKey].toLowerCase().includes(searchTerm.toLowerCase())
-        );
-        setSearchResults(results);
-    };
-
-    return (
-        <div>
-            <input
-                type="text"
-                placeholder="Search..."
-                value={searchTerm}
-                onChange={e => setSearchTerm(e.target.value)} />
-            <button onClick={handleSearch}>Search</button>
-
-            <ul>
-                {searchResults.map((result, index) => (
-                    <li key={index}>{result[searchKey]}</li>
-                ))}
-            </ul>
-        </div>
+  const search = () => {
+    const results = data.filter((row) =>
+      row.some((cell) => cell.toString().toLowerCase().includes(query))
     );
+    onSearch(results);
+  };
+
+  useEffect(() => {
+    search();
+  }, []);
+
+  return (
+    <div>
+      <input
+        type="text"
+        className="search"
+        placeholder="Search..."
+        value={query}
+        onChange={(e) => {
+          setQuery(e.target.value.toLowerCase());
+          search();
+        }}
+      />
+    </div>
+  );
 }
 
 export default SearchInput;
