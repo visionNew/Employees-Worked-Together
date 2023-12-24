@@ -9,19 +9,19 @@ import './App.css'
 
 
 function App() {
-  
-  return (
-      <Routes>
-            <Route path="/" element={<Main />}>
-                <Route path="" element={<Home />} />
-                <Route path="employees-statistic" element={<Statistic />}>
-                    <Route path="overall-stats" element={<DataTable/>} />
-                    <Route path="worked-project-period" element={<DaysWorkedByProjectTable />} />
-                    <Route path="worked-together-period" element={<DaysWorkedTogetherTable />} />
+
+    return (
+            <Routes>
+                <Route path="/" element={<Main />}>
+                    <Route path="" element={<Home />} />
+                    <Route path="employees-statistic" element={<Statistic />}>
+                        <Route path="overall-stats" element={<DataTable/>} />
+                        <Route path="worked-project-period" element={<DaysWorkedByProjectTable />} />
+                        <Route path="worked-together-period" element={<DaysWorkedTogetherTable />} />
+                    </Route>
                 </Route>
-            </Route>
-        </Routes>
-  )
+            </Routes>
+    )
 }
 
 export default App
