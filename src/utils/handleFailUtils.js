@@ -25,4 +25,13 @@ function handleFileUpload(e, setData, setErrors) {
     };
 }
 
-export {handleFileUpload}
+function loadStoredData(setData, setIsDataLoaded) {
+    const storedData = localStorage.getItem('uploadedData');
+    if (storedData) {
+        setData(JSON.parse(storedData));
+        setIsDataLoaded(true);
+    }
+    localStorage.removeItem('uploadedData');
+}
+
+export { handleFileUpload, loadStoredData }

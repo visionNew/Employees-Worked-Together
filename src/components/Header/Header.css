@@ -24,36 +24,34 @@ header .content .header__logo a:hover {
 
     border-bottom: none;
 }
-header .content nav {
+header .content nav.header__nav {
     display: flex;
     gap: 2rem;
 }
-header .content .header__nav {
-    display: flex;
-    gap: 2rem;
-}
-header .content .menu__icon {
+
+header .content .dropdown {
     display: none;
-    font-size: 2rem;
+}
+
+header .content .dropdown .burger__icon {
+    font-size: 1.5rem;
 }
 
 @media screen and (max-width: 768px) {
-    header .content .header__nav {
+    header .content nav.header__nav {
         display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 10%;
-        left: 82%;
-        z-index: 1;
     }
-
-    header .content .header__nav.visible {
-        display: flex;
-    }
-
-    header .content .menu__icon {
+    header .content .dropdown {
         display: block;
-        cursor: pointer;
     }
+    header .content .dropdown .dropdown__menu {
+        width: 10rem;
+        left: -150%;
+    }
+}
 
+@media screen and (max-width: 600px) {
+    header .content .dropdown .dropdown__menu {
+        left: -200%;
+    }
 }

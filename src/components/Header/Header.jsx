@@ -1,17 +1,11 @@
 import { Link, NavLink } from 'react-router-dom';
-import Logo from '../../assets/logo.svg'
+import { FaInfoCircle , FaChartBar } from "react-icons/fa";
 import DecoratedText from '../DecoratedText/DecoratedText';
-import { FaBars, FaInfoCircle , FaChartBar } from "react-icons/fa";
+import Dropdown from '../DropDown/Dropdown';
+import Logo from '../../assets/logo.svg';
 import './Header.css';
-import { useState } from 'react';
 
 function Header() {
-    const [isMenuVisible, setMenuVisibility] = useState(false);
-
-    const toggleMenu = () => {
-        setMenuVisibility((prev) => !prev);
-    };
-
 
     return (
             <header>
@@ -20,14 +14,12 @@ function Header() {
                         <div className='header__logo'>
                             <Link to={"/"}><img src={Logo} alt="logo" /></Link>
                         </div>
-                        <nav className={`header__nav ${isMenuVisible ? 'visible' : ''}`}>
+                        <nav className='header__nav'>
                             <NavLink to={"/"}><FaInfoCircle /> Home</NavLink>
                             <NavLink to={"/employees-statistic"}><FaChartBar /> Statistic</NavLink>
                         </nav>
                         <DecoratedText />
-                        <div className={`menu__icon ${isMenuVisible ? 'open' : ''}`} onClick={toggleMenu}>
-                            <FaBars />
-                        </div>
+                        <Dropdown isHeaderComponent={true} />
                     </div>
                 </div>
             </header>
