@@ -1,14 +1,32 @@
-function splitData(string) {
-    return string.split(/(\r\n|\r|\n)/g).filter((row) => row.trim().length !== 0);
+function splitData(string, fileType) {
+    if (fileType === 'csv') {
+        return string.split(/(\r\n|\r|\n)/g).filter((row) => row.trim().length !== 0);
+    } else if (fileType === 'json') {
+        return JSON.parse(string).map((obj) => JSON.stringify(obj));
+    } else {
+        return [];
+    }
 }
 
-function formatDataMatrix(array) {
-    return array
-        .map((row) => row.split(",").map(trimString));
+function formatDataMatrix(array, fileType) {
+    if (fileType === 'csv') {
+        return array.map((row) => row.split(",").map(trimString));
+    } else if (fileType === 'json') {
+        return array.map((row) => {
+            const parsedRow = JSON.parse(row);
+            return Object.values(parsedRow);
+        });
+    } else {
+        return [];
+    }
 }
 
 function trimString(string) {
     return string.trim();
+}
+
+function fileTypeData(file) {
+    return file.name.split('.').pop().toLowerCase();
 }
 
 function findInvalidRows(matrix) {
@@ -59,4 +77,4 @@ function validateDate(dateString) {
     return getLocalDate();
 }
 
-export { splitData, formatDataMatrix, sanitizeArray, findInvalidRows, validateDate};
+export { splitData, formatDataMatrix, fileTypeData, sanitizeArray, findInvalidRows, validateDate};

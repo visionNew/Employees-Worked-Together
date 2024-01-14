@@ -1,4 +1,4 @@
-import { splitData, formatDataMatrix, sanitizeArray, findInvalidRows } from './dataUtils'
+import { splitData, formatDataMatrix, fileTypeData, sanitizeArray, findInvalidRows } from './dataUtils'
 
 
 function handleFileUpload(e, setData, setErrors) {
@@ -9,8 +9,9 @@ function handleFileUpload(e, setData, setErrors) {
     reader.readAsText(file);
 
     reader.onload = function () {
-        const dataArr = splitData(reader.result);
-        const dataMatrix = formatDataMatrix(dataArr);
+        const fileType = fileTypeData(file);
+        const dataArr = splitData(reader.result, fileType);
+        const dataMatrix = formatDataMatrix(dataArr, fileType);
         const newErrors = findInvalidRows(dataMatrix);
 
         if (newErrors.length > 0) {

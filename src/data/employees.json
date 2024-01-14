@@ -1,0 +1,10 @@
+[
+    {"EmpID": "143", "ProjectID": "12", "DateFrom": "2013-11-01", "DateTo": "2014-01-05"},
+    {"EmpID": "218", "ProjectID": "10", "DateFrom": "2012-05-16", "DateTo": null},
+    {"EmpID": "143", "ProjectID": "10", "DateFrom": "2009-01-01", "DateTo": "2011-04-27"},
+    {"EmpID": "218", "ProjectID": "15", "DateFrom": "2015-08-10", "DateTo": null},
+    {"EmpID": "143", "ProjectID": "12", "DateFrom": "2014-02-15", "DateTo": "2015-06-30"},
+    {"EmpID": "218", "ProjectID": "11", "DateFrom": "2014-10-01", "DateTo": "2016-03-20"},
+    {"EmpID": "143", "ProjectID": "15", "DateFrom": "2016-01-01", "DateTo": null},
+    {"EmpID": "143", "ProjectID": "11", "DateFrom": "2014-11-01", "DateTo": "2018-01-05"}
+]
