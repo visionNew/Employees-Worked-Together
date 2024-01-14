@@ -12,7 +12,7 @@ The primary tasks for this project include:
 
 2. **Data Validation:** Validating the uploaded data to ensure it meets the required format and contains the necessary information.
 
-3. **Sorting and Filtering:** Implementing functionality to sort the data based on selected columns and filter it based on user-defined criteria.
+3. **Searching, Sorting and Filtering:** Implementing functionality to search and sort the data based on selected columns and filter it based on user-defined criteria.
 
 4. **Statistical Analysis:** Displaying relevant statistics such as overall performance, project periods, and collaboration periods.
 
@@ -34,9 +34,11 @@ The primary tasks for this project include:
 
 ### Sorting and Filtering:
 
-1. **Sorting Algorithm:** The data is sorted using a custom sorting algorithm based on the selected column and sorting order (ascending or descending).
+1. **Searching Algorithm:** The search is carried out through a customized algorithm, you search the entire database presented in table.
 
-2. **Filtering Algorithm:** Filtering is applied based on user-defined criteria, narrowing down the data based on specific conditions.
+2. **Sorting Algorithm:** The data is sorted using a custom sorting algorithm based on the selected column and sorting order (ascending or descending).
+
+3. **Filtering Algorithm:** Filtering is applied based on user-defined criteria, narrowing down the data based on specific conditions.
 
 ### Statistical Analysis:
 
