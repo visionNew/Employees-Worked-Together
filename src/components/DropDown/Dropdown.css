@@ -9,7 +9,7 @@
     align-items: center;
     position: absolute;
     top: 110%;
-    left: -110%;
+    left: -80%;
     border-radius: 5px;
     background-color: var(--color-body);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -17,19 +17,20 @@
 }
 
 .dropdown__menu a {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
     padding: 0.8rem 0.6rem;
-    text-decoration: none;
 }
 
 @media screen and  (max-width: 768px) { 
     .dropdown__menu {
-        left: -140%;
+        left: -100%;
     }
 }
 
 @media screen and  (max-width: 600px) { 
     .dropdown__menu {
-        left: -200%;
+        left: -150%;
     }
 }
